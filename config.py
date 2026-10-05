@@ -24,6 +24,10 @@ class NovaConfig:
         "nova-development-secret-change-later"
     )
 
+    # =========================
+    # AI ENGINE
+    # =========================
+
     AI_ENGINE = os.getenv(
         "NOVA_AI_ENGINE",
         "local"
@@ -33,6 +37,25 @@ class NovaConfig:
         "NOVA_AI_MODEL",
         "gpt-oss"
     )
+
+    # =========================
+    # FRONTEND ORIGINS
+    # =========================
+
+    WEB_ORIGIN = os.getenv(
+        "NOVA_WEB_ORIGIN",
+        "http://localhost:3000"
+    )
+
+    ADMIN_ORIGIN = os.getenv(
+        "NOVA_ADMIN_ORIGIN",
+        "http://localhost:3001"
+    )
+
+    ALLOWED_ORIGINS = [
+        WEB_ORIGIN,
+        ADMIN_ORIGIN,
+    ]
 
     DEBUG = ENVIRONMENT == "development"
 
